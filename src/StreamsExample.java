@@ -79,6 +79,13 @@ public void skipOperation () {
                 .forEach(System.out::println);
 }
 
+public void countOperation () {
+    long nuberOfEmloyes = employees.stream()
+            .filter(employee -> employee.getFirstName().startsWith("B"))
+            .count();
+    System.out.println(nuberOfEmloyes);
+}
+
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
@@ -88,7 +95,8 @@ public void skipOperation () {
         //example.filterOperation();
         //example.sortedOperation();
         //example.limitOperation();
-        example.skipOperation();
+        //example.skipOperation();
+        example.countOperation();
     }
     }
 
