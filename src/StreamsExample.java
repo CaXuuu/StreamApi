@@ -31,10 +31,16 @@ public class StreamsExample {
             employees
                     .forEach(System.out::println);
         }
+        public void mapOperation () {
+        employees.stream()
+                .map(employee -> employee.getFirstName())
+            .forEach(System.out::println);
+        }
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
-        example.firstStream();
+        //example.firstStream();
+        example.mapOperation();
     }
     }
 
