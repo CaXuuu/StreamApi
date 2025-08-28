@@ -156,6 +156,13 @@ public void takeWhileOperation () {
 
 }
 
+public void dropWhileOperation () {
+        employees.stream()
+                .sorted(Comparator.comparing(Employee::getAge))
+                .dropWhile(employee -> employee.getAge() < 30) // pracownicy powyzej 30roku zycia
+                .forEach(System.out::println);
+
+}
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
@@ -172,7 +179,8 @@ public void takeWhileOperation () {
         //example.findAnyOperation();
         //example.matchOperation();
         //example.reduceOperation();
-        example.takeWhileOperation();
+        //example.takeWhileOperation();
+        example.dropWhileOperation();
     }
     }
 
