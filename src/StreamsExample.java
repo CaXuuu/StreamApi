@@ -163,6 +163,14 @@ public void dropWhileOperation () {
                 .forEach(System.out::println);
 
 }
+public void forEachOrdered(){
+        String sentence = "Jak nauczyc sie programowania?";
+                sentence.chars().forEach(s -> System.out.print((char)s));//pokazuje wszytsko jako char
+    System.out.println();
+                sentence.chars().parallel().forEachOrdered(s -> System.out.print((char)s));// to samo co wyzej ale wielowatkowo
+}
+
+
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
@@ -180,7 +188,8 @@ public void dropWhileOperation () {
         //example.matchOperation();
         //example.reduceOperation();
         //example.takeWhileOperation();
-        example.dropWhileOperation();
+        //example.dropWhileOperation();
+        example.forEachOrdered();
     }
     }
 
