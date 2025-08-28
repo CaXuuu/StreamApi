@@ -33,7 +33,7 @@ public class StreamsExample {
         }
         public void mapOperation () {
         employees.stream()
-                .map(employee -> employee.getFirstName())
+                .map(Employee::getFirstName)
             .forEach(System.out::println);
         }
     public static void main(String[] args) {
