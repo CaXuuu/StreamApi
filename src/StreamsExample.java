@@ -102,6 +102,19 @@ public void findAnyOperation () {
     System.out.println(findEmp);
 }
 
+public void matchOperation () {
+    boolean b = employees.stream()
+            .allMatch(employee -> employee.getFirstName().startsWith("B")); //sprawdzamy czy dla wszytskich imie zaczyna sie na B
+    System.out.println(b);
+
+    boolean b1 = employees.stream()
+            .anyMatch(employee -> employee.getFirstName().startsWith("B")); //czy kogokolwiek imie zaczyna sie na B
+    System.out.println(b1);
+
+    boolean b2 = employees.stream()
+            .noneMatch(employee -> employee.getFirstName().startsWith("B")); //czy nikogo imie zaczyna sie na B
+    System.out.println(b2);
+}
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
@@ -115,7 +128,8 @@ public void findAnyOperation () {
         //example.skipOperation();
         //example.countOperation();
         //example.minMaxOperation();
-        example.findAnyOperation();
+        //example.findAnyOperation();
+        example.matchOperation();
     }
     }
 
