@@ -86,6 +86,18 @@ public void countOperation () {
     System.out.println(nuberOfEmloyes);
 }
 
+public void minMaxOperation () {
+    Employee youngestEmployee = employees.stream()
+            .min(Comparator.comparing(Employee::getAge)).get();  //zwraca optional wiec musimy dac get
+    System.out.println(youngestEmployee);
+
+    Employee oldestEmployee = employees.stream()
+            .max(Comparator.comparing(Employee::getAge)).get();
+    System.out.println(oldestEmployee);
+}
+
+
+
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
@@ -96,7 +108,8 @@ public void countOperation () {
         //example.sortedOperation();
         //example.limitOperation();
         //example.skipOperation();
-        example.countOperation();
+        //example.countOperation();
+        example.minMaxOperation();
     }
     }
 
