@@ -148,6 +148,13 @@ public void reduceOperation () {
 
 }
 
+public void takeWhileOperation () {
+        employees.stream()
+                .sorted(Comparator.comparing(Employee::getAge))
+                .takeWhile(employee -> employee.getAge() < 30) // stosujemy na posortowanych streamach
+                .forEach(System.out::println);
+
+}
 
 
     public static void main(String[] args) {
@@ -164,7 +171,8 @@ public void reduceOperation () {
         //example.minMaxOperation();
         //example.findAnyOperation();
         //example.matchOperation();
-        example.reduceOperation();
+        //example.reduceOperation();
+        example.takeWhileOperation();
     }
     }
 
