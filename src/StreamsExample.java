@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamsExample {
     List<Employee> employees = new ArrayList<>();
@@ -35,13 +37,29 @@ public class StreamsExample {
                 .map(employee -> employee.getFirstName() + " " + employee.getLastName())
             .forEach(System.out::println);
         }
+public void flatMapOperation () {
+        //zapisywanie do zmiennej ctrl + alt + v
+    Collection<List<String>> allSkilss = employees.stream()
+            .map(Employee::getSkills)
+            .collect(Collectors.toList());
+    System.out.println(allSkilss);
+
+    Collection<String> allSKills2 = employees.stream()
+            .map(Employee::getSkills)
+            .flatMap(list -> list.stream())  //mapa ktora daje wszytysko
+            .distinct()  //nie beda sie powtarzaly
+            .collect(Collectors.toList());  //zbieramy do kolekcji
+    System.out.println(allSKills2);
+}
+
 
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
         //example.firstStream();
-        example.mapOperation();
+        //example.mapOperation();
+        example.flatMapOperation();
     }
     }
 
