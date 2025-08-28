@@ -4,7 +4,7 @@ import java.util.List;
 public class StreamsExample {
     List<Employee> employees = new ArrayList<>();
 
-    public void setUp(){
+    public void setUp() {
         Employee employee1 = new Employee("Honkytonk", "Cumbercooch", 25, List.of("Java", "JavaScript", "Python"));
         Employee employee2 = new Employee("Brewery", "Chickenstrips", 31, List.of("C#"));
         Employee employee3 = new Employee("Beetlejuice", "Snugglesnatch", 23, List.of("Java", "Haskell", "Scala"));
@@ -26,4 +26,15 @@ public class StreamsExample {
     }
 
 
-}
+
+        public void firstStream () {
+            employees
+                    .forEach(System.out::println);
+        }
+    public static void main(String[] args) {
+        StreamsExample example = new StreamsExample();
+        example.setUp();
+        example.firstStream();
+    }
+    }
+

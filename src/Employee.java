@@ -14,5 +14,7 @@ public class Employee {
     int age;
 
     private List<String> skills;
-
+    public String toString() {
+        return firstName + " " + lastName + ", age: " + age + ", skills: " + skills;
+    }
 }
