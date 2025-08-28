@@ -116,6 +116,40 @@ public void matchOperation () {
     System.out.println(b2);
 }
 
+public void reduceOperation () {
+    Integer sumOfAllAges = employees.stream()
+            .map(Employee::getAge)
+            .reduce(Integer::sum)
+            .get();
+    System.out.println(sumOfAllAges);
+
+    Integer sumOfAllAges2 = employees.stream()
+            .map(Employee::getAge)
+            .reduce(0, Integer::sum); //0 - zaczynamy od zera
+
+    System.out.println(sumOfAllAges2);
+
+    Integer sumOfAllAges3 = employees.stream()
+            .map(Employee::getAge)
+            .reduce((age1,age2)->age1+age2)
+            // bierzemy jedna wartosc i drugdodajemy wynik tego traktujemy jako pierwsza i dodajemy druga i tak dalej
+            .get();
+    System.out.println(sumOfAllAges3);
+
+    Integer sumOfAllAges4 = employees.stream()
+            .reduce(0, (age, employees) -> age + employees.getAge(), Integer::sum); //troche dlugie ale dziala
+    System.out.println(sumOfAllAges4);
+
+    String allNames = employees.stream()
+            .map(Employee::getFirstName)
+            .reduce((name, name2) -> name + ", " + name2)// wypisuje imiona po przecinku
+            .get();
+    System.out.println(allNames);
+
+}
+
+
+
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
@@ -129,7 +163,8 @@ public void matchOperation () {
         //example.countOperation();
         //example.minMaxOperation();
         //example.findAnyOperation();
-        example.matchOperation();
+        //example.matchOperation();
+        example.reduceOperation();
     }
     }
 
