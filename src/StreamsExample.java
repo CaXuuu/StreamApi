@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,12 @@ public void filterOperation () {
         employees.stream()
                 .filter(employee -> employee.getFirstName().startsWith("B"))  //filtrowanie
                 .forEach(System.out::println);
+}
+
+public void sortedOperation () {
+        employees.stream()
+                .sorted(Comparator.comparing(Employee::getAge))  //sortowanie w tym przypadku po wieku
+                .forEach(System.out::println);
 
 }
 
@@ -65,7 +72,8 @@ public void filterOperation () {
         //example.firstStream();
         //example.mapOperation();
         //example.flatMapOperation();
-        example.filterOperation();
+        //example.filterOperation();
+        example.sortedOperation();
     }
     }
 
