@@ -72,6 +72,12 @@ public void limitOperation () {
                 .limit(2)  //limit ile elementow sie wyswietli
                 .forEach(System.out::println);
 }
+public void skipOperation () {
+        employees.stream()
+                .sorted(Comparator.comparing(Employee::getFirstName))
+                .skip(2) // skipujemy 2 pierwsze elementy
+                .forEach(System.out::println);
+}
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
@@ -81,7 +87,8 @@ public void limitOperation () {
         //example.flatMapOperation();
         //example.filterOperation();
         //example.sortedOperation();
-        example.limitOperation();
+        //example.limitOperation();
+        example.skipOperation();
     }
     }
 
