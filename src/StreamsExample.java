@@ -66,6 +66,13 @@ public void sortedOperation () {
 
 }
 
+public void limitOperation () {
+        employees.stream()
+                .sorted(Comparator.comparing(Employee::getLastName))
+                .limit(2)  //limit ile elementow sie wyswietli
+                .forEach(System.out::println);
+}
+
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
@@ -73,7 +80,8 @@ public void sortedOperation () {
         //example.mapOperation();
         //example.flatMapOperation();
         //example.filterOperation();
-        example.sortedOperation();
+        //example.sortedOperation();
+        example.limitOperation();
     }
     }
 
