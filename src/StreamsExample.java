@@ -52,14 +52,20 @@ public void flatMapOperation () {
     System.out.println(allSKills2);
 }
 
+public void filterOperation () {
+        employees.stream()
+                .filter(employee -> employee.getFirstName().startsWith("B"))  //filtrowanie
+                .forEach(System.out::println);
 
+}
 
     public static void main(String[] args) {
         StreamsExample example = new StreamsExample();
         example.setUp();
         //example.firstStream();
         //example.mapOperation();
-        example.flatMapOperation();
+        //example.flatMapOperation();
+        example.filterOperation();
     }
     }
 
