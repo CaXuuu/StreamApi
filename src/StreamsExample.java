@@ -95,7 +95,12 @@ public void minMaxOperation () {
             .max(Comparator.comparing(Employee::getAge)).get();
     System.out.println(oldestEmployee);
 }
-
+public void findAnyOperation () {
+    Employee findEmp = employees.stream()
+            .filter(employee -> employee.getFirstName().startsWith("B"))
+            .findAny().get();
+    System.out.println(findEmp);
+}
 
 
     public static void main(String[] args) {
@@ -109,7 +114,8 @@ public void minMaxOperation () {
         //example.limitOperation();
         //example.skipOperation();
         //example.countOperation();
-        example.minMaxOperation();
+        //example.minMaxOperation();
+        example.findAnyOperation();
     }
     }
 
